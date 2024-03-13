@@ -1,4 +1,5 @@
 import { AppBar, Box, Button } from "@mui/material";
+import Home from "components/home/home";
 import {
   NavLink,
   Route,
@@ -31,7 +32,7 @@ function App() {
         </AppBar>
 
         <Routes>
-          <Route path="/" element={<div>Home</div>} />
+          <Route path="/" element={<Home />} />
           <Route path="/blog" element={<div>Blog</div>} />
           <Route path="/new-post" element={<div>New Post</div>} />
         </Routes>
