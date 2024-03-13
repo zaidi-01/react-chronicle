@@ -2,10 +2,15 @@ import React from "react";
 import "./blog.scss";
 
 function Blog() {
-  const [posts, setPosts] = React.useState([
-    { id: 1, title: "First Post", content: "This is my first post!" },
-    { id: 2, title: "Second Post", content: "This is my second post!" },
-  ]);
+  const [posts, setPosts] = React.useState([] as any[]);
+
+  // TODO: Replace with componentDidMount
+  // TODO: Add Post model
+  React.useEffect(() => {
+    fetch("http://localhost:3002/post")
+      .then((response) => response.json())
+      .then((data) => setPosts(data));
+  }, []);
 
   return (
     <div className="blog">

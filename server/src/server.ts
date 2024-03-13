@@ -30,7 +30,7 @@ const posts = [
 app.get("/homeData", (_, res) => {
   res.json({
     message:
-      "Welcome to our website! Explore our blog for interesting articles.",
+      "This is a simple blog application built with React and Express.",
   });
 });
 
