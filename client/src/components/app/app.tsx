@@ -18,6 +18,10 @@ const routes: Map<string, string> = new Map([
 ]);
 
 function App() {
+  const onAddPost = (post: any) => {
+    alert(`Added post: ${post.title}`);
+  }
+
   return (
     <div className="App">
       <Router>
@@ -39,7 +43,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route
               path="/new-post"
-              element={<NewPost onAddPost={() => {}} />}
+              element={<NewPost onAddPost={onAddPost} />}
             />
           </Routes>
         </div>

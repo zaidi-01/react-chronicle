@@ -8,11 +8,24 @@ function NewPost({ onAddPost }: { onAddPost: (post: any) => void }) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const newPost = { id: Date.now(), title, content };
-    onAddPost(newPost);
 
-    setTitle("");
-    setContent("");
+    // TODO: Add NewPost model
+    const newPost = { title, content };
+
+    // TODO: Replace with API service
+    fetch("http://localhost:3002/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        onAddPost(data);
+        setTitle("");
+        setContent("");
+      });
   };
 
   return (
