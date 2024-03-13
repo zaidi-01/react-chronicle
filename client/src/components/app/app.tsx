@@ -33,11 +33,16 @@ function App() {
           </Box>
         </AppBar>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/new-post" element={<NewPost onAddPost={() => {}} />} />
-        </Routes>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route
+              path="/new-post"
+              element={<NewPost onAddPost={() => {}} />}
+            />
+          </Routes>
+        </div>
       </Router>
     </div>
   );

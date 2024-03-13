@@ -1,4 +1,5 @@
 import React from "react";
+import "./blog.scss";
 
 function Blog() {
   const [posts, setPosts] = React.useState([
@@ -9,12 +10,14 @@ function Blog() {
   return (
     <div className="blog">
       <h2>Blog Posts</h2>
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
-        </div>
-      ))}
+      <div className="posts">
+        {posts.map((post) => (
+          <div className="post" key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
