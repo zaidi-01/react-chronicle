@@ -1,0 +1,8 @@
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-form > *:not(:last-child) {
+  margin-bottom: 1rem;
+}

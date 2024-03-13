@@ -1,4 +1,6 @@
+import { Button, TextField } from "@mui/material";
 import { FormEvent, useState } from "react";
+import "./new-post.scss";
 
 function NewPost({ onAddPost }: { onAddPost: (post: any) => void }) {
   const [title, setTitle] = useState("");
@@ -16,23 +18,26 @@ function NewPost({ onAddPost }: { onAddPost: (post: any) => void }) {
   return (
     <div>
       <h2>Add a New Post</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="post-form" onSubmit={handleSubmit}>
+        <TextField
+          required
+          type="text"
+          label="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <TextField
+          required
+          type="text"
+          label="Content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
         <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+          <Button type="submit" variant="contained">
+            Add Post
+          </Button>
         </div>
-        <div>
-          <label>Content:</label>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          ></textarea>
-        </div>
-        <button type="submit">Add Post</button>
       </form>
     </div>
   );
